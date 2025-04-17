@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Interactive map that displays homelessness resources in Maryland">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maryland Map of Homelessness Resources</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <!--Nav bar?-->
+                <div id="topInfo">
+                    <img src="mapForMoreLogo.png" id="logo" alt="Map for More logo">
+                    <h1 id="nd">Map of Homelessness Resources in Southern Maryland</h1>
+                </div>
+            <!--bars of FILTERS for resources appearing on map-->
+            <div class="filters" id="type">
+                <div class="pair">
+                    <h3>Shelters</h3> <input type="radio" id="shelter-image" name="image" value="shelter-image">
+                </div>
+                <div class="pair">
+                    <h3>Food Pantries</h3> <input type="radio" id="shelter-image" name="image" value="pantry-image">
+                </div>
+                <div class="pair">
+                    <h3>Other</h3> <input type="radio">
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+            <!--MAP-->
+            <div class="image-scale">
+                <img src="Untitled.PNG" alt="map of Maryland resources aimed at helping the homeless and impoverished" usemap="#datamap" id="datamap">
+            </div>
+            <!--coordinates found using http://www.image-map.net/ 
+                    all code original
+            -->
+            <map name="datamap">
+                <!--Calvert County area pins-->
+                    <area alt="Bayside Baptist location pin" href="#" coords="778,154,9" shape="circle" onclick="toggleDiv(event,'baysideBaptist')">
+                    <area alt="Ladies of Charity location pin" href="#" coords="796,139,10" shape="circle" onclick="toggleDiv(event,'ladiesOfCharity')">
+                    <area alt="End Hunger location pin" href="#" coords="742,204,9" shape="circle" onclick="toggleDiv(event,'endHunger')">
+                    <area alt="First Lutheran Church location pin" href="#" coords="717,210,9" shape="circle" onclick="toggleDiv(event,'firstLutheranChurch')">
+                    <area alt="Chesapeake Cares location pin" href="#" coords="744,230,10" shape="circle" onclick="toggleDiv(event,'chesapeakeCares')">
+                    <area alt="Mount Olive United location pin" href="#" coords="743,326,9" shape="circle" onclick="toggleDiv(event,'mountOliveUnited')">
+                    <area alt="Calvert Lighthouse" href="#" coords="794,348,9" shape="circle" onclick="toggleDiv(event,'calvertLighthouse')">
+                    <area alt="St. John Vianney" href="#" coords="758,344,10" shape="circle" onclick="toggleDiv(event,'saintJohnVianney')">
+                    <area alt="Housing Authority" href="#" coords="734,348,9" shape="circle" onclick="toggleDiv(event,'housingAuthority')">
+                    <area alt="Project Echo" href="#" coords="751,370,10" shape="circle" onclick="toggleDiv(event,'projectEcho')">
+                    <area alt="Safe Nights" href="#" coords="729,375,10" shape="circle" onclick="toggleDiv(event,'safeNights')">
+                    <area alt="Calvert Churches Food Pantry" href="#" coords="747,394,11" shape="circle" onclick="toggleDiv(event,'calvertChurches')">
+                    <area alt="Safe Harbor" href="#" coords="693,399,11" shape="circle" onclick="toggleDiv(event,'safeHarbor')">
+                    <area alt="Brooks United Methodist" href="#" coords="801,483,9" shape="circle" onclick="toggleDiv(event,'brooksUnitedMethodist')">
+                    <area alt="Middleham and Saint Peter's" href="#" coords="939,570,10" shape="circle" onclick="toggleDiv(event,'saintPeter')">
+                    <area alt="SMILE" href="#" coords="928,593,11" shape="circle" onclick="toggleDiv(event,'smile')">
+                    <area alt="Solomons Mission Center" href="#" coords="887,653,11" shape="circle" onclick="toggleDiv(event,'solomonsMissionCenter')">
+                <!--Saint Mary's County area pins-->
+                    <area alt="" title="" href="#" coords="945,842,10" shape="circle">
+                    <area alt="" title="" href="#" coords="871,796,10" shape="circle">
+                    <area alt="" title="" href="#" coords="868,772,10" shape="circle">
+                    <area alt="" title="" href="#" coords="903,779,9" shape="circle">
+                    <area alt="" title="" href="#" coords="948,781,9" shape="circle">
+                    <area alt="" title="" href="#" coords="915,760,9" shape="circle">
+                    <area alt="" title="" href="#" coords="888,764,8" shape="circle">
+                    <area alt="" title="" href="#" coords="921,738,10" shape="circle">
+                    <area alt="" title="" href="#" coords="894,747,9" shape="circle">
+                    <area alt="" title="" href="#" coords="898,725,10" shape="circle">
+                    <area alt="" title="" href="#" coords="788,657,9" shape="circle">
+                    <area alt="" title="" href="#" coords="788,632,10" shape="circle">
+                    <area alt="" title="" href="#" coords="788,657,9" shape="circle">
+                    <area alt="Mt. Zion" href="#" coords="666,555,11" shape="circle" onclick="toggleDiv(event,'mtZion')">
+                    <area alt="St. Paul's First" href="#" coords="618,673,11" shape="circle" onclick="toggleDiv(event,'saintPauls')">
+                    <area alt="Walden Sierra" href="#" coords="636,687,11" shape="circle" onclick="toggleDiv(event,'waldenSierra')">
+                    <area alt="St. Vincent de Paul at St. Aloysius" href="#" coords="641,710,9" shape="circle" onclick="toggleDiv(event,'stVinAtStAloysius')">
+                <!--Charles County area pins-->
+                    <area alt="Christ Episcopal Joe's" href="#" coords="133,443,13" shape="circle" onclick="toggleDiv(event,'christEpiscopalJoes')">
+                    <area alt="Poiema Movement" href="#" coords="331,232,11" shape="circle" onclick="toggleDiv(event,'poiemaMovement')">
+                    <area alt="End Hunger" href="#" coords="289,271,11" shape="circle" onclick="toggleDiv(event,'endHungerCharles')">
+                    <area alt="Center for Abused Persons" href="#" coords="441,232,11" shape="circle" onclick="toggleDiv(event,'centerForAbusedPersons')">
+                    <area alt="Calvalry United" href="#" coords="417,251,10" shape="circle" onclick="toggleDiv(event,'calvalryUnited')">
+                    <area alt="Southern Maryland Foodbank" href="#" coords="393,251,10" shape="circle" onclick="toggleDiv(event,'southernMarylandFoodbank')">
+                    <area alt="Angel's Watch" href="#" coords="404,272,11" shape="circle" onclick="toggleDiv(event,'angelsWatch')">
+                    <area alt="Robert J. Fuller Transitional House" href="#" coords="380,269,10" shape="circle" onclick="toggleDiv(event,'RJFuller')">
+                    <area alt="Deep Launching" href="#" coords="357,260,10" shape="circle" onclick="toggleDiv(event,'deepLaunching')">
+                    <area alt="Israel Total Life Ministries" href="#" coords="367,289,10" shape="circle" onclick="toggleDiv(event,'israelTotalLife')">
+                    <area alt="Journey of Faith" href="#" coords="331,277,12" shape="circle" onclick="toggleDiv(event,'journeyOfFaith')">
+                    <area alt="New Life" href="#" coords="346,307,10" shape="circle" onclick="toggleDiv(event,'newLife')">
+                    <area alt="Children's Aid" href="#" coords="429,272,11" shape="circle" onclick="toggleDiv(event,'childrensAid')">
+            </map>
+            </div>
+            <!--points info-->
+                <!--Calvert County points-->
+                    <div class="pin" class="food-pantry" id="ladiesOfCharity">
+                        <h1>Ladies of Charity</h1>
+                        <p>Location: 8823 Dayton Ave., North Beach, MD 20714<br>
+                            Phone: 410-286-7086<br>
+                            Email: loccalvert@gmail.com<br>
+                            Website: ladiesofcharitycalvertcounty.org
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="baysideBaptist">
+                        <h1>Bayside Baptist</h1>
+                        <p>Location: 3009 Chesapeake Beach Road, Chesapeake Beach, MD 20732<br>
+                            Phone: 410-257-0712<br>
+                            Email: info@baysidebaptist.com<br>
+                            Website: www.baysidebaptist.com/community-food-pantry
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="endHunger">
+                        <h1>End Hunger</h1>
+                        <p>Location: 6201 Solomons Island Road, Huntingtown, MD 20639<br>
+                            Phone: 410-257-5672<br>
+                            Email: info@endhungercalvert.org<br>
+                            Website: endhungercalvert.org
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="firstLutheranChurch">
+                        <h1>First Lutheran Church</h1>
+                        <p>Location: 6300 Southern Maryland Blvd., Huntingtown, MD 20639<br>
+                            Phone: 410-257-3030<br>
+                            Email: flc@firstlutheranchurch.org<br>
+                            Website: www.firstlutheranchurch.org/home
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="chesapeakeCares">
+                        <h1>Chesapeake Cares</h1>
+                        <p>Location: 6021 Solomons Island Road, Huntingtown, MD 20639<br>
+                            Phone: 410-257-3444<br>
+                            Email: foodpantry@chesapeakechurch.org<br>
+                            Website: chesapeakechurch.org/food-pantry</p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="mountOliveUnited">
+                        <h1>Mount Olive United Methodist</h1>
+                        <p>Location: 10 Fairground Road, Prince Frederick, MD 20678<br>
+                            Phone: 410-535-5756<br>
+                            Email: officeadmin@mtoliveumchurch.com<br>
+                            Website: mtoliveumchurch.com
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="saintJohnVianney">
+                        <h1>St. John Vinanney</h1>
+                        <p>Location: 105 Vianney Lane, Prince Frederick, MD 20678<br>
+                            Phone: 410-535-0223<br>
+                            Email: Office@SJVChurch.net<br>
+                            Website: www.sjvchurch.net</p>
+                    </div>
+                    <div class="pin" class="other" id="housingAuthority">
+                        <h1>Housing Authority</h1>
+                        <p>Location: 480 Main St., Prince Frederick, MD 20678<br>
+                            Phone: 410-535-5010 <br>
+                            Email: mail@calverthousing.org
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="calvertLighthouse">
+                        <h1>Calvert Lighthouse</h1>
+                        <p>Location: 40 Clay Hammond Road, Prince Frederick, MD 20678<br>
+                            Phone: 410-535-5515<br>
+                            Email: Calvertlighthouse@gmail.com<br>
+                            Website: calvertlighthousechurch.org<br>
+                        </p>
+                    </div>
+                    <div class="pin" class="shelter" id="safeNights">
+                        <h1>Safe Nights of Calvert County</h1>
+                        <p>Location: Prince Frederick, MD 20678<br>
+                            Phone: 443-486-8670 <br>
+                            Website: https://www.safenightsofcalvert.com/
+                        </p>
+                    </div>
+                    <div class="pin" class="shelter" id="projectEcho">
+                        <h1>Project Echo</h1>
+                        <p>Location: 484 Main St., Prince Frederick, MD 20678<br>
+                            Phone: 410-535-0044 <br>
+                            Website: https://projectecho.net/our-shelter/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="calvertChurches">
+                        <h1>Calvert Churches Community Food Pantry</h1>
+                        <p>Location: 100 Jibsail Drive Suite 101, Prince Frederick, MD 20678<br>
+                            Phone: 410-414-7474<br>
+                            Email: cccfp_4us@comcast.net<br>
+                            Website: www.cccfp.org
+                        </p>
+                    </div>
+                    <div class="pin" class="shelter" id="safeHarbor">
+                        <h1>Safe Harbor</h1>
+                        <p>Location: Prince Frederick, MD 20678<br>
+                            Mailing Address: P. O. Box 801<br>
+                            Phone: 410-535-1121<br>
+                            Website: https://somd.com/catalog/1137.php
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="brooksUnitedMethodist">
+                        <h1>Brooks United Methodist</h1>
+                        <p>Location: 5550 Mackall Road, St. Leonard, MD 20685<br>
+                            Phone: 410-586-3972<br>
+                            Email: brookschurch@comcast.net<br>
+                            Website: www.brooksumc.org
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="saintPeter">
+                        <h1>Middleham and Saint Peter's Parish</h1>
+                        <p>Location: 10210 H G Trueman Road, Lusby, MD 20657<br>
+                            Phone: 410-326-4948<br>
+                            Email: office@mspparish.org<br>
+                            Website: www.mspparish.org</p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="smile">
+                        <h1>SMILE Ecumenical Ministry Food Pantry</h1>
+                        <p>Location: 10290 H G Trueman Road, Lusby, MD 20657<br>
+                            Phone: 410-326-0009<br>
+                            Email: smileministries@gmail.com<br>
+                            Website: smileinc.org/food-pantry
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="solomonsMissionCenter">
+                        <h1>Solomon Mission Center</h1>
+                        <p>Location: 14454 Solomons Island Rd S, Solomons, MD 20688<br>
+                            Phone: 410-326-3278 <br>
+                            Email: solomonsmissioncenter@gmail.com<br>
+                            Website:  https://www.solomonsmissioncenter.org/
+                        </p>
+                    </div>
+                <!--Charles County points-->
+                    <div class="pin" class="shelter" id="poiemaMovement">
+                        <h1>Poiema Movement</h1>
+                        <p>Location: 10395 Berry Road, Waldorf, MD 20603<br>
+                            Phone: 301-645-1007<br>
+                            Email: tiffany@poiemamovement.com<br>
+                            Website: https://www.poiemamovement.com/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="deepLaunching">
+                        <h1>Deep Launching Emergency Community Pantry</h1>
+                        <p>Location: 4800 Lancaster Circle, Waldorf, MD 20603<br>
+                            Phone: 301-818-3988<br>
+                            Website: https://www.deeplaunching.org/Barnhart-Community-Hub
+                        </p>
+                    </div>
+                    <div class="pin" class="other" id="centerForAbusedPersons">
+                        <h1>Center for Abused Persons</h1>
+                        <p>Location: 2670 Crain Highway, Suite 303, Waldorf, MD 20603<br>
+                            Phone: 301-843-1110<br>
+                            Hotline: 301-645-3336<br>
+                            Website: www.centerforabusedpersonscharlescounty.org/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="southernMarylandFoodbank">
+                        <h1>Southern Maryland Food Bank</h1>
+                        <p>Location: 22 Irongate Dr, Waldorf, MD 20602<br>
+                            Email: contact@southernmarylandfoodbank.com<br>
+                            Website: https://southernmarylandfoodbank.com/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="endHungerCharles">
+                        <h1>End Hunger in Charles County</h1>
+                        <p>Location: 3709 Hastings Ct, White Plains, MD 20695<br>
+                            Website: https://endhungerincharles.org/</p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="israelTotalLife">
+                        <h1>Israel Total Life Ministries</h1>
+                        <p>Location: 64 Industrial Park Drive, Waldorf, MD 20602<br>
+                            Phone: 301-861-3927
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="calvalryUnited">
+                        <h1>Calvalry United Methodist Church</h1>
+                        <p>Location: 3235 Leonardtown Rd, Waldorf, MD 20601<br>
+                            Phone: 301-645-5247</p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="journeyOfFaith">
+                        <h1>Journey of Faith Church</h1>
+                        <p>Location: 2900 Smallwood Drive, West Waldorf, MD 20603<br>
+                            Phone: 301-645-0846</p>
+                    </div>
+                    <div class="pin" class="shelter" id="angelsWatch">
+                        <h1>Catholic Charities Angel's Watch Shelter</h1>
+                        <p>Location: Hughesville, MD 20637<br>
+                            Phone: 301-274-0680<br>
+                            Website: https://www.catholiccharitiesdc.org/
+                        </p>
+                    </div>
+                    <div class="pin" class="shelter" id="RJFuller">
+                        <h1>Robert J. Fuller Transitional House</h1>
+                        <p>Location: 3470 Rockefeller Court, Waldorf, MD 20602<br>
+                            Phone: 301-645-2933
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="childrensAid">
+                        <h1>Charles County Children's Aid Society</h1>
+                        <p>Location: 3000 Huntington Circle, Waldorf, MD 20602<br>
+                            Phone: 301-645-1561
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="newLife">
+                        <h1>New Life Food Pantry</h1>
+                        <p>Location: 9690 Shepherds Creek Place, La Plata, MD 20646<br>
+                            Phone: 301-609-8423<br>
+                            Email: info@newlife.live<br>
+                            Website: www.newlife.live
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="goodShepherd">
+                        <h1>Good Shepherd United Methodist Church</h1>
+                        <p>Location: 305 Smallwood Drive, Waldorf, MD 20602<br>
+                            Phone: 301-843-6797<br>
+                            Website: https://www.gsfb.org/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Forest Park Church</h1>
+                        <p>Location: 12295 Church Road, Waldorf, MD 20601<br>
+                            Phone: 301-645-4212
+                        </p>
+                    </div>
+                    <div class="pin">
+                        <h1>Good Fight of Faith Evangelist Ministries</h1>
+                        <p>Location: 4470 Southern Business Park Dr. #13, White Plains, MD 20695<br>
+                            Phone: 623-688-7864 </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Faith Temple Baptist Church</h1>
+                        <p>Location: 7 E Hawthorne Drive, La Plata, MD 20646<br>
+                            Phone: 240-419-8355
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Hughesville Baptist Church</h1>
+                        <p>Location: 8505 Old Leonardtown Rd, Hughesville, MD 20637<br>
+                            Phone: 301-274-3672<br>
+                            Website: https://www.hughesvillebaptist.com/ministries/food-benevolence.html
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Christ Church</h1>
+                        <p>Location: 112 E Charles Street La Plata, MD 20646<br>
+                            Phone: 301-392-1051<br>
+                            Website: https://somdfoodconnection.org/venue/christ-church-of-la-plata/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Grace Lutheran Church</h1>
+                        <p>Location: 1200 Charles Street, La Plata, MD 20646<br>
+                            Phone: 301-932-0963<br>
+                            Website: https://www.growingwithgrace.org/food-and-compassion-ministries
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="christEpiscopalJoes">
+                        <h1>Joe's Place, Christ Episcopal Church</h1>
+                        <p>Location: 8700 Ironsides Road, Nanjemoy, MD 20662<br>
+                            Phone: 301-743-7099<br>
+                            Website: https://www.christchurchspotsy.com/ministries/food-pantry/ 
+                        </p>
+                    </div>
+                <!--St Mary's County points-->
+                    <div class="pin" class="food-pantry" id="mtZion">
+                        <h1>Mt. Zion United Methodist Church</h1>
+                        <p> Location: 21708 Mt. Zion Church Road, Mechanicsville, MD 20659<br>
+                            Phone: 301-884-4132<br>
+                            Website: https://mtzionmech.org/get-involved/outreach-ministries
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="saintPauls">
+                        <h1>Saint Paul's First Saint's Community Church</h1>
+                        <p> Location: 25550 Point Lookout Road, Leonardtown, MD 20650<br>
+                            Phone: 301-475-7200
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Helping Hands</h1>
+                        <p>Location: 24630 Beck Road, Hollywood, MD 20636<br>
+                            Phone: 301-373-6990
+                        </p>
+                    </div>
+                    <div class="pin" class="shelter" id="waldenSierra">
+                        <h1>Walden Sierra</h1>
+                        <p>Location: 2684 Point Lookout Road, Leonardtown, MD 20650<br>
+                            Phone: 301-997-1300<br>
+                            Website: http://www.waldensierra.org
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>St. Vincent de Paul at St. John's Church</h1>
+                        <p>Phone: 301-373-2502<br>
+                            Website: https://stjohnsp.org/pantry
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry" id="stVinAtStAloysius">
+                        <h1>St. Vincent de Paul at St. Aloysius</h1>
+                        <p>Location: 22800 Washington St, Leonardtown, MD 20650<br>
+                            Phone: 301-475-8064<br>
+                            Website: https://saintaloysiuschurch.org/food-pantry
+                        </p>
+                    </div>
+                    <div class="pin" class="shelter">
+                        <h1>Life Styles, St. Mary's County Office</h1>
+                        <p>Location: St. Mary's County Office, 21795-F N. Shangri-La Dr., Lexington Park, MD 20653<br>
+                            Phone: 240-237-8236 <br>
+                            Website: https://lifestylesofmd.org/homeless-services/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>St. Vincent de Paul at Immaculate Heart of Mary Church</h1>
+                        <p>Location: 21641 Great Mills Road, Lexington Park, MD 20653<br>
+                            Phone: 301-737-2870
+                        </p>
+                    </div>
+                    <div class="pin" class="shelter">
+                        <h1>Three Oaks Center</h1>
+                        <p>Location: 46905 Lei Drive, Lexington Park, MD 20653<br>
+                            Phone: 301-863-9535<br>
+                            Website: http://threeoakscenter.org/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Lexington Park Baptist Church</h1>
+                        <p>Location: 46855 S. Shangri-La Drive, Lexington Park, MD 20653<br>
+                            Phone: 301-862-2552<br>
+                            Website: https://www.lpbconline.org/ministries2
+                        </p>
+                    </div>
+                    <div class="pin" class="other">
+                        <h1>Steve L. Kessler Center: The Mission</h1>
+                        <p>Location: 21015 Great Mills Road, Lexington Park, MD 20653<br>
+                            Phone: 240-718-8911<br>
+                            P.O. Box 2011, California, Maryland 20619<br>
+                            Website: https://seekingshelter.com
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Trinity Lutheran Church</h1>
+                        <p>Location: 46707 Shangri-La Drive, Lexington Park, MD 20653<br>
+                            Phone: 301-863-9512<br>
+                            Website: https://trinitylutheranlp.org/food-pantry
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>Good Samaritan Lutheran Church</h1>
+                        <p>Location: 20850 Langley Rd, Lexington Park, MD 20653<br>
+                            Phone: 301-863-4740<br>
+                            Website: https://goodsam.community/serve/our-daily-bread-food-pantry/
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1></h1>
+                        <p>Location: 21991 Three Notch Road, Lexington Park, MD 20653<br>                          
+                            Phone: 301-863-5161<br>
+                            Website: https://www.7cups.com/local/us/md/lexington-park/food/food-pantry-6871182382                            
+                        </p>
+                    </div>
+                    <div class="pin" class="food-pantry">
+                        <h1>H.O.P.E</h1>
+                        <p>Location: 47950 Mattapany Road, Lexington Park, 20653<br>
+                            Phone: 301-862-4600<br>
+                            Website: https://www.hopesmc.org/food-pantry/
+                        </p>
+                    </div>
+        </main>
+        <footer>
+            <!--Nav bar?-->
+            <!--authors info: NAMES, etc-->
+            <!--goal-->
+            <p>Maps for More is an interactive map meant to make resources for homelessness and poverty accessible to all.</p>
+            <p>Ada Marciniak, Megan Kline, and Jessica Hall</p>
+            <p>2024-25 MESA NEDC</p>
+        </footer>
+        <script src="index.js"></script>
+    </body>
+</html>
